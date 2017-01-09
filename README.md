@@ -4,7 +4,7 @@ When uploading a file...
 
 - search for the appropriate folder
     - (ex: ./Ruby/OOP/MathDojo)
-- create folders necessary
+- create folders as necessary
 - make directory for your name
     - (./Ruby/OOP/MathDojo/David_W)
 - place all files for project in directory
