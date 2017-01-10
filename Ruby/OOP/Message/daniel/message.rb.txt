@@ -1,0 +1,53 @@
+class Message
+  def initialize sender
+    @created_at = Time.now
+    @sender = sender
+  end
+
+  def properties title, text, reciever
+    @title = title
+    @text = text
+    @reciever = reciever
+    @updated = Time.now
+  end
+
+  def display_all
+    return {
+      "sender" => @sender,
+      "reciever" => @reciever,
+      "created_at" => @created_at,
+      "title" => @title,
+      "text" => @text,
+      "updated" => @updated
+    }
+  end
+
+  def display_sender
+    return @sender
+  end
+
+  def display_reciever
+    return @reciever
+  end
+
+  def display_created_at
+    return @created_at
+  end
+
+  def display_title
+    return @title
+  end
+
+  def display_text
+    return @text
+  end
+
+  def display_updated
+    return @updated
+  end
+
+end
+
+message = Message.new("Daniel")
+message.properties("Subject: Hello", "How are you?", "Abby")
+puts message.display_all
