@@ -101,6 +101,6 @@ Dojo.first.students
 Dojo.second.students
 Dojo.third.students
 Dojo.second.students.select("first_name")
- Dojo.second.students.select("first_name").order_by("DESC)
-2.2.1 :072"> Dojo.second.students.select("first_name").order_by
-2.2.1 :073">
+Dojo.second.students.select("first_name").order_by("DESC)
+Dojo.second.students.select("first_name").order(:first_name)
+Dojo.second.destroy
