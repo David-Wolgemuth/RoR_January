@@ -1,0 +1,106 @@
+rails new dojo_ninjas
+rails generate model Dojo name:string city:string state:string
+rails generate model Ninja dojo_id:integer
+rails c
+Hirb.enable
+rails generate model Ninja dojo:references first_name:string last_name:string
+rake db:migrate
+rails c
+dojo1 = Dojo.new
+Hirb.enable
+dojo2 = Dojo.new
+dojo3 = Dojo.new
+ninja1 = Ninja.new
+dojo1.name = "CodingDojo Silicon Valley"
+dojo1.city = "Mountain View"
+dojo1.state = "CA"
+dojo2.name = "CodingDojo Seattle"
+dojo2.city = "Seattle"
+dojo2.state = "WA"
+dojo1.save
+ dojo2.save
+dojo3.name = "CodingDojo New York"
+dojo3.city = "New York"
+dojo3.state = "NY"
+dojo3.save
+Dojo.all
+Ninja.all
+ninja1.first_name = "Jill"
+ninja1.last_name = "Johnson"
+ninja1
+ninja1.dojo = Dojo.find(1)
+ninja1.save
+ninja2 = Ninja.new
+ninja2.first_name = "Alex"
+ninja2.last_name = "Davis"
+ninja2.dojo = Dojo.find(2)
+ninja2.save
+ninja3 = Ninja.new
+ninja3.first_name = "Don"
+ninja3.last_name = "Black"
+ninja2.dojo = Dojo.find(1)
+ninja3.dojo = Dojo.find(3)
+ninja3.save
+ninja4 = Ninja.new
+ninja4.first_name = "YoYo"
+ninja4.last_name = "Ma"
+ninja4.dojo = Dojo.first
+ninja4.save
+Dojo.all
+Ninja.all
+ninja5 = Ninja.new
+ninja5.first_name = "Evan"
+ninja5.last_name = "Smith"
+ninja5.dojo = Dojo.first
+ninja5.save
+ Ninja.all
+ninja6.first_name = "Lisa"
+ninja6.last_name = "Thompson"
+ninja6.dojo = Dojo.second
+ninja6.save
+ninja7 = Ninja.new
+Ninja.all
+Dojo.all
+Dojo.find(1).ninjas
+ninja7 = Ninja.new
+ninja7.first_name = "x"
+ninja7.last_name = "just x"
+ninja7.dojo = Dojo.second
+ninja7.save
+Ninja.all
+ninja8 = Ninja.new
+ninja8.first_name = "Killer Mike"
+ninja8.last_name = "Mike"
+ninja8.dojo = Dojo.third
+ninja8.save
+ninja9 = Ninja.new
+ninja9.first_name = "Khristian"
+ninja9.last_name = "Anderson"
+ninja9.dojo = Dojo.third
+ninja9.save
+Ninja.all
+reload!
+dojo4 = Dojo.new
+dojo4.valid?
+Dojo.find(1).destroy
+Dojo.find(2).destroy
+Dojo.find(3).destroy
+Dojo.create(name: "Junk Yard", city:"Chicago", state: "IL")
+Dojo.create(name: "Atlantis", city:"Atlantis", state: "AS")
+Dojo.create(name: "Testing", city:"", state: "")
+Ninja.create(first_name: "Alex", last_name:"Anderson", dojo:Dojo.first)
+Ninja.create(first_name: "Glen", last_name:"Davis", dojo:Dojo.first)
+Ninja.create(first_name: "Harden", last_name:"Davis", dojo:Dojo.first)
+Ninja.create(first_name: "Jim", last_name:"John", dojo:Dojo.second)
+Ninja.create(first_name: "Jenkins", last_name:"Eric", dojo:Dojo.second)
+Ninja.create(first_name: "Tim", last_name:"Jordan", dojo:Dojo.second)
+ Ninja.create(first_name: "Tim", last_name:"Drake", dojo:Dojo.third)
+Ninja.create(first_name: "Jon", last_name:"Jones", dojo:Dojo.third)
+Ninja.create(first_name: "Eric", last_name:"Deen", dojo:Dojo.third)
+Dojo.first.students
+Dojo.second.students
+Dojo.third.students
+Dojo.second.students.select("first_name")
+ Dojo.second.students.select("first_name").order_by("DESC)
+2.2.1 :072"> Dojo.second.students.select("first_name").order_by
+2.2.1 :073">
