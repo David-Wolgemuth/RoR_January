@@ -3,9 +3,7 @@ class Post < ActiveRecord::Base
   validates :title, :content, presence:true
   validates :title, length: {minimum:7}
   # set auto-function that deletes messages associated with post when post is deleted
-  after_destroy do
-    message.each do
-      message.destroy
+  has_many :messages, dependent: :destroy
     end
   end
 end
