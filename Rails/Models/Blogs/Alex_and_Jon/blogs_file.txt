@@ -1,0 +1,35 @@
+rails new blogs
+cd blogs
+nano Gemfile
+"gem 'hirb'"
+bundle install
+rails c
+rails g model Blog name:string description:string
+rails g model Post title:string content:string blog:references
+rails g model Message author:string message:string post:references
+rake db:migrate
+rails c
+Hirb.enable
+reload! *added validations*
+Blog.create name:"Blog 1", description:"The first one"
+Blog.create name:"Blog 2", description:"The second one"
+.
+.
+.
+Blog.create name:"Blog 5", description:"The fifth one"
+Post.create title:"Poster 2", content:"Post 2 for  Blog 4", blog:Blog.find(4)
+*15 with varying titles and content
+Message.create author:"Alex", message:"This is Coding Dojo", post:Post.find(1)
+*3
+
+
+has_many :posts
+Blog.find(1).posts
+Blog.last.posts.order title: :desc
+Post.first.update title:"New Title"
+
+dependent: :destroy
+Post.third.destroy
+
+Blog.all
+Blog.where("id < ?", 5)
