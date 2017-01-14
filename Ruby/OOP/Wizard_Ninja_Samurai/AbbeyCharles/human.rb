@@ -6,9 +6,9 @@ class Human
     @stealth = 3
     @intelligence = 3
   end
-  def attack
+  def attack(obj)
     if obj.class.ancestors.include?(Human)
-      @health -= 10
+      obj.health -= 10
       true
     else
       false

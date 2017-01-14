@@ -1,0 +1,40 @@
+rails new user_login_project
+nano Gemfile --> gem 'hirb'
+bundle install
+rails g model User first_name:string last_name:string email:string age:integer
+rake db:migrate
+rails console
+Hirb.enable
+user1 = User.new(first_name:"Alex", last_name:"Ambrose", email:"alex@help.com", age:22)
+user1.save
+user2 = User.new(first_name:"Michael", last_name:"Jordan", email:"mike@help.com", age:35)
+user2.save
+user3 = User.new(first_name:"Paul", last_name:"Konerko", email:"paul@help.com", age:46)
+user3.save
+*open user_login_project/app/models/user.rb*
+validates :first_name, :last_name, presence: true, length: { minimum: 2 }
+
+validates :age, presence: true, numericality: {greater_that_or_equal_to: 10, less_than_or_equal_to: 150}
+validates :email, presence: true
+*back to rails console*
+reload!
+user4 = User.new
+user4.valid? => false
+user4.errors
+user4.errors.full_messages => 
+["First name can't be blank", "First name is too short (minimum is 2 characters)", 
+"Last name can't be blank", "Last name is too short (minimum is 2 characters)", 
+"Age can't be blank", "Age is not a number", "Email can't be blank"]
+user4.first_name = "Arya"
+user4.last_name = "Stark"
+user4.email = "arya@help.com"
+user4.age = 12
+user4.valid? => true
+user4.save
+User.all
+User.first
+User.last
+User.order(first_name: :asc)
+curr = User.find(3)
+curr.update(last_name:"Giamatti")
+User.find(4).destroy

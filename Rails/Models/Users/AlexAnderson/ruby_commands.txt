@@ -1,0 +1,51 @@
+rails new user_login_project
+rails generate model User first_name:string last_name:string email:string age:integer
+rails c
+user1 = User.new
+user1.first_name = "Alex"
+user1.last_name = "Anderson"
+user1.email = "AA@email.com"
+user1.age = 21
+user1.save
+
+user2.first_name = "Tom"
+user2.last_name = "Tom"
+user2.email = "tom@tom.com"
+user2.age = 34
+user2.valid?
+user2.new_record?
+user2.save
+
+user3 = User.new
+user3.valid?
+user3.first_name = "What what?"
+user3.last_name = "Who who!"
+user3.email = "ya@gmail.com"
+user3.age = 99999
+user3.save
+User.all
+
+user4.first_name = "a"
+user4.valid?
+user4.first_name = "An"
+user4.valid?
+user4.last_name = "We're Done"
+user4.valid?
+user4.email = "yep@gmail.com"
+user4.valid?
+user4.age = "A"
+user4.valid?
+user4.age = 1
+user4.valid?
+user4.age = 1000
+user4.valid?
+user4.age = 10
+user4.valid?
+user4.save
+User.all
+User.first
+User.last
+User.order(first_name: :desc)
+user3.first_name = "Sam"
+user3.save
+User.find(4).destroy
