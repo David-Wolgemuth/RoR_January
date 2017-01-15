@@ -1,0 +1,38 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 AndaleMono;}
+{\colortbl;\red255\green255\blue255;\red47\green255\blue18;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 > vagrant ssh\
+>cd rails-projects/\
+>which tree\
+>tree BPM_Project\
+>rails new bpm_project\
+>nano Gemfile\
+>>gem\'92herb\'92\
+>bundle install\
+>
+\f1 \cf2 \cb0 \CocoaLigature0 rails g model Blog name:string description:string\
+>rails g model Post title:string content:string blog:references\
+>rails g model Message author:string message:string post:references\
+> rake db:migrate\
+>rails c\
+>Hirb.enable\
+\
+\
+> Blog.createname:"Number1", description:"The first blog"\
+>Blog.create name:"Number3", description:"The third blog"\
+(have 3 blogs)\
+\
+>Post.create title:"post numbre one", content:"This is for second blog", blog:Blog.find(1)\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf2 Message.create author:"Me", message:"Awesome me!", post:Post.find(1)\
+\
+>> got to app > in Blog \
+has_many :posts\
+\
+>>
+\f0 \cf0 \cb1 \CocoaLigature1 \
+}
