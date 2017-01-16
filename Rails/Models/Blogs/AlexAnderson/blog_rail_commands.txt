@@ -19,3 +19,11 @@ Post.create(title:"screw the packers", content:"The NFL is rigged", blog:Blog.th
 2.2.1 :026 > Message.create(author:"Tim",message:"The packers suck!", post:Post.first)
 2.2.1 :027 > Message.create(author:"Jim",message:"The packers is life", post:Post.first)
 2.2.1 :028 > Message.create(author:"Slim",message:"I will name my first born after Rogers if they win the title! Don't tell my wife", post:Post.first)
+Blog.first.all_posts
+Blog.last.all_posts
+Blog.third.all_posts.order("title")
+Post.update(1, title:"New title")
+Blog.find(3).destroy
+Post.find(3).destroy
+Blog.all
+Blog.where("id < 5")
