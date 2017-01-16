@@ -1,0 +1,21 @@
+rails new blog_app
+vagrant ssh
+awesome-app  rails-projects
+rails-projects/
+cd blog_app/
+rails c
+2.2.1 :001 > Hirb.enable
+2.2.1 :004 > Blog.create(name:"first blog", description:"This is a test")
+2.2.1 :005 > Blog.create(name:"second  blog", description:"This is asecond  test")
+2.2.1 :006 > Blog.create(name:"The damn packers won", description:"Guess I'm rooting for the falcons")
+Blog.create(name:"The steelers should win", description:"but you never know")
+Blog.create(name:"Hidden Figures review", description:"Great American story about the contribution of black women")
+2.2.1 :019 > Post.create(title:"Go packers", content:"Cheeshead naton", blog:Blog.third)
+2.2.1 :020 > Post.create(title:"Go packers baby", content:"Cheeshead naton", blog:Blog.third)
+2.2.1 :021 > Post.create(title:"packers", content:"Cheeshead naton", blog:Blog.third)
+Post.create(title:"screw the packers", content:"The NFL is rigged", blog:Blog.third)
+2.2.1 :024 > Post.create(title:"screw you", content:"Rogers is the GOAT", blog:Blog.third)
+2.2.1 :025 > Post.create(title:"Positive vibes", content:"New year time for good things", blog:Blog.first)
+2.2.1 :026 > Message.create(author:"Tim",message:"The packers suck!", post:Post.first)
+2.2.1 :027 > Message.create(author:"Jim",message:"The packers is life", post:Post.first)
+2.2.1 :028 > Message.create(author:"Slim",message:"I will name my first born after Rogers if they win the title! Don't tell my wife", post:Post.first)
