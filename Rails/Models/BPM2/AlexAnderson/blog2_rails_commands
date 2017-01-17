@@ -1,0 +1,15 @@
+rails generate model User first_name:string last_name:string email:string
+rails generate model Owners user:references blog:references
+User.create(first_name:"Alex", last_name:"Anderson", email:"alex@yahoo.com")
+User.create(first_name:"Sarah", last_name:"Anderson", email:"sarah@gmail.com")
+User.create(first_name:"Bruce", last_name:"Wayne", email:"bruce@gmail.com")
+User.create(first_name:"Thomas", last_name:"Wayne", email:"robin@gmail.com")
+User.create(first_name:"Wilson", last_name:"dogman", email:"dog@gmail.com")
+Blog.create(name:"The truth about it all", description:"That'll be $5 please")
+Blog.create(name:"blog2", description:"blog2")
+Blog.create(name:"blog3", description:"blog3")
+Blog.create(name:"blog4", description:"blog4")
+Blog.create(name:"blog5", description:"blog5")
+Owner.create(user:User.first, blog:Blog.first)
+Owner.create(user:User.first, blog:Blog.second)
+Owner.create(user:User.first, blog:Blog.find(3))
