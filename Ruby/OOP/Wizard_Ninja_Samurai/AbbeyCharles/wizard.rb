@@ -9,12 +9,7 @@ class Wizard < Human
     @health += 10
   end
 
-  def fireball
-    if obj.class.ancestors.include?(Human, Wizard, Ninja, Samurai)
-      @health -= 20
-      true
-    else
-      false
-    end
+  def fireball(obj)
+    obj.health -= 20
   end
 end

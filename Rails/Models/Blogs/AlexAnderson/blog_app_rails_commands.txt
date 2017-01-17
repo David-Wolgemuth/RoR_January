@@ -1,0 +1,5 @@
+rails new blog_app
+rails generate model Blog name:string description:string
+rails generate model Post title:string content:string blog:references
+rails generate model Message author:string message:sting post:references
+rake db:migrate
