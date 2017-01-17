@@ -1,0 +1,5 @@
+<form method="post" action="/users/new">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="text" value="<%= @new_user %>" name="name">
+  <input type="submit" value="Add a User">
+</form>
