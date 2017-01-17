@@ -23,6 +23,16 @@ class ProductsController < ApplicationController
   end
 
   def times
+    if(!session[:count])
+      session[:count] = 0
+    else
+      session[:count] +=1
+    end
+    # render text: 'You have visited this page # times'
     render '/products/times'
+  end
+  def reset
+    session[:count] = 0
+    render 'products/reset'
   end
 end
