@@ -1,0 +1,46 @@
+rails new --skip-spring --skip-listen user_practice
+cd user_practice
+echo 'gem "hirb"' >> Gemfile
+bundle install
+rails generate model User first_name:string last_name:string email:string age:integer
+rake db:migrate
+
+rails c
+Hirb.enable
+test = User.new(first_name:"Guy", last_name:"Fieri")
+test.save
+User.all
+
+=======
+user_practice/app/models/user.rb
+++++++
+class User < ActiveRecord::Base
+  validates :first_name, :last_name, :email, :age, presence: true
+  validates :age, numericality: {greater_than_or_equal_to: 10}
+  validates :age, numericality: {less_than: 150 }
+  validates :first_name, length: { minimum: 2 }
+  validates :last_name, length: { minimum: 2 }
+end
+=======
+
+reload!
+user2 = User.new(first_name:"Little", last_name:"Johnny", email:"email@aol.com", age:9)
+user3 = User.new(first_name:"Bob", last_name:"Belcher", email:"email@aol.com", age:50)
+user4 = User.new(first_name:"Father", last_name:"Time", email:"email@aol.com", age:250)
+user5 = User.new(first_name:"Rick", last_name:"Ross", email:"", age:50)
+
+user2.save
+user3.save
+user4.save
+user5.save
+
+user2.valid?
+user3.valid?
+user4.valid?
+user5.valid?
+
+current = User.find(2)
+current.update(first_name:"Tina", age:13)
+
+test.valid?
+User.find(1).destroy
