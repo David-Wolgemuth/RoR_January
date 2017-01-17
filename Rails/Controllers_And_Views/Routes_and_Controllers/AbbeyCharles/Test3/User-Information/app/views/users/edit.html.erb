@@ -1,0 +1,5 @@
+<form action="/users/:id/edit" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  Change name:<input type="text" value="<%= @update.name %>">
+  <input type="submit" value="Change Name" name="change">
+</form>
