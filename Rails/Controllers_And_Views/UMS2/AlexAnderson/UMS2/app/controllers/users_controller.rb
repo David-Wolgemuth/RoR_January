@@ -8,7 +8,12 @@ class UsersController < ApplicationController
     render 'new'
   end
   def create
-    @user =  User.create( first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password])
-    redirect_to '/users'
+    @user =  User.create( first_name: params[:first_name], last_name: params[:last_name], email_address: params[:email], password: params[:password])
+    @errors = @user.errors.messages
+    if @errors.length > 0
+      render '/users/new'
+    else
+      redirect_to '/users'
+    end
   end
 end
