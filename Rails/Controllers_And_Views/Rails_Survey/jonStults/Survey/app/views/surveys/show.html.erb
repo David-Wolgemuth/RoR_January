@@ -1,0 +1,13 @@
+
+<% if flash[:notice] %>
+  <div>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<h3>Submitted Information:</h3>
+<p>Name: <%= "#{session[:survey]['name']}" %> </p>
+<p>Location: <%= "#{session[:survey]['location']}" %> </p>
+<p>Language: <%= "#{session[:survey]['language']}" %> </p>
+<p>Comment: <%= "#{session[:survey]['comment']}" %> </p>
+<button type="button" name="button"><a href="/">Go Back</a></button>
