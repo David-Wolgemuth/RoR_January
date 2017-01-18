@@ -1,0 +1,15 @@
+<h1>These are the users:</h1>
+<table>
+  <tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Email Address</td>
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+  </tr>
+  <% end %>
+</table>
