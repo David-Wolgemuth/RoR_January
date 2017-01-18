@@ -1,0 +1,12 @@
+  <h2> Welcome </h2>
+
+  <% if flash[:success] %>
+    <p> <%= flash[:success] %> </p>
+  <% end %>
+
+    <p style="style='margin: 5px;">Name: <%= @form_data["name"] %>"</p>
+    <p style="style='margin: 5px;">Locaation: <%= @form_data["location"] %>"</p>
+    <p style="style='margin: 5px;">Language: <%= @form_data["language"] %>"</p>
+    <p style="style='margin: 5px;">Comment: <%= @form_data["Comment"] %>"</p>
+
+    <a href="/survey/index"> Go Back </a>

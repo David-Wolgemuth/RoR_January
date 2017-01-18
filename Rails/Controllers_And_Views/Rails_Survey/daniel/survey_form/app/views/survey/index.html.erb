@@ -1,0 +1,20 @@
+  <h2> Welcome </h2>
+
+  <form action="/submit_survey" method="POST" style='padding: 10px;'>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+
+    Name: <input type="text" name="survey[name]" style='margin: 5px;'> <br>
+    Location: <select name="survey[location]">
+      <option value="Chicago">Chicago</option>
+      <option value="Missoula">Missoula</option>
+      <option value="College Station">College Station</option>
+      </select><br>
+    Language: <select name="survey[language]" style='margin: 5px;'>
+      <option value="python">python</option>
+      <option value="MEAN">MEAN</option>
+      <option value="Ruby on Rails">Ruby on Rails</option>
+      </select><br>
+
+      Comment:<br> <textarea name="survey[comment]" rows="5" cols="40" style='margin: 5px; display: inline-block;'></textarea> <br>
+      <input type="submit" name="" value="Submit Form" style='margin: 5px;'>
+  </form>
