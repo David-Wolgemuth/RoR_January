@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/' => 'surveys#index'
 
   get 'surveys/submit'
+  post 'surveys/submit' => 'surveys#submit'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
