@@ -1,0 +1,24 @@
+<h1>Surveys#index</h1>
+<p>Find me in app/views/surveys/index.html.erb</p>
+
+<form action='/survey/submit' method='post'>
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  Your Name: <input type='text' name='name' /> <br>
+  Dojo Location:
+  <select>
+  <option value="volvo">Mountain View</option>
+  <option value="saab">Chicago</option>
+  <option value="opel">Seattle</option>
+  <option value="audi">Texas</option>
+</select> <br>
+Favorite Language:
+<select>
+<option value="volvo">Javascript</option>
+<option value="saab">Python</option>
+<option value="opel">MEAN</option>
+<option value="audi">Ruby on Rails</option>
+</select> <br>
+ Comments (optional)<br>
+ <textarea name="name" rows="8" cols="60"></textarea> <br>
+  <input type='submit' value='Submit' />
+</form>
