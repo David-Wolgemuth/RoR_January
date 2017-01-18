@@ -1,0 +1,20 @@
+<h1>Take a Short Survey!</h1>
+<form action="" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  Your name:<input type="text" name="name">
+  Favorite Climate: <select name="location" id="">
+    <option value="asia">Southeast Asia</option>
+    <option value="centralAmerica">Central America</option>
+    <option value="africa">Africa</option>
+    <option value="tundra">Northern Canada</option>
+  </select>
+  Most Useful Piece of Clothing: <select name="language" id="">
+    <option value="shoes">Shoes</option>
+    <option value="pants">Pants</option>
+    <option value="hat">Hat</option>
+    <option value="shirt">Shirt</option>
+  </select>
+  Additional Comments: <textarea name="comment" rows="8" cols="80"></textarea>
+  <input type="submit" value="Submit This Awesome Survey" id="">
+
+</form>

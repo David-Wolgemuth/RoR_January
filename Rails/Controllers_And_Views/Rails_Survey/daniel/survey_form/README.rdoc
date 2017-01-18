@@ -1,0 +1,30 @@
+##Naming Conventions
+======
+
+###If using object notation in name attribute of html inputs:
+
+##### name="survey[name]" location="survey[location]" language="survey[language]" comment="survey[comment]"
+
+**Parameters Equal**:
+{"authenticity_token"=>"J.......==",
+    "survey" => {
+     "name"=>"Daniel",
+     "location"=>"Chicago",
+     "language"=>"python",
+     "comment"=>"Name follow object notation."}
+}
+
+###### *The key survey has a hash value containing all the data*
+
+=====
+
+###If using no notation in name attribute of html inputs:
+
+##### name="name" location="location" etc."
+
+**Parameters Equal**:
+{"authenticity_token"=>"Aw...==",
+ "name"=>"Test",
+ "location"=>"College Station",
+ "language"=>"MEAN",
+ "comment"=>"This is normal names"}

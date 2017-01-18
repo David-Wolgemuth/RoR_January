@@ -1,0 +1,10 @@
+<%= flash[:sucess] %>
+<form action='/user/add' method='post'>
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden"> <br>
+  Name: <input type='text' name='name' / value="<%= @name %>"> <br>
+  Dojo Location: <input type='text' name='name' / value="<%= @location %>"> <br>
+  Favorite Language: <input type='text' name='name' / value="<%= @language %>"> <br>
+  Comment: <input type="text" name="" value="<%=@comment %>"> <br>
+
+  <input type='submit' value='Go Back' />
+</form>
