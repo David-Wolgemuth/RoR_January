@@ -1,0 +1,50 @@
+routes.rb
+=========
+Rails.application.routes.draw do
+
+  root "number#index"
+
+  get "number/index"
+
+  post "generate" => "number#generate"
+
+end
+
+index.html
+==========
+<h1>Hello</h1>
+
+Random Word Attempt: <%= "#{session[:total]}" %>
+
+<% if @message %>
+  <p> <%= @message %> </p>
+<% end %>
+
+<form class="" action="/generate" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  Number: <span><%= session[:word] %></span><br>
+  <input type="submit" name="" value="submit">
+</form>
+
+
+number_controller.rb
+====================
+class NumberController < ApplicationController
+  def index
+    if !session[:total]
+      session[:total] = 0
+    end
+  end
+
+  def generate
+    session[:total] = session[:total] + 1
+
+    session[:word] = Random.rand(0...1000) #random word function
+    @message = "You submitted the survey. It has been submitted #{session[:total]} times"
+
+    redirect_to action: 'index'
+  end
+
+end
+
+
