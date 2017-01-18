@@ -1,0 +1,41 @@
+// Place all the styles related to the gold controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mike {
+  color: dodgerblue;
+}
+
+.tbox {
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.total {
+  height: 140px;
+  width: 250px;
+  border: 1px solid black;
+}
+
+div{
+  margin: 10px;
+}
+
+#scroll{
+  height: auto;
+  width: 800px;
+  border: 1px solid black;
+}
+
+p{
+  display: inline-block;
+}
+
+#log {
+  display: block;
+  margin: auto;
+  border: none;
+}

@@ -1,0 +1,57 @@
+<h1>Welcome to Ninja Gold</h1>
+
+
+        <div class='total'>
+          <p>Your gold: <%= session[:total]%> </p>
+          <p><%= session[:message]%></p><br>
+        </div>
+
+
+
+        <div id="farmbox" class="tbox">
+          <h4> Farm </h4>
+          <h5> Earns 10-20 golds </h5>
+          <form action="/make" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+            <input type="hidden" name="location" value="farm"/>
+            <input class='submit' type="Submit" value="Find Gold!"/>
+          </form>
+        </div>
+
+        <div id="cavebox" class="tbox">
+          <h4> Cave </h4>
+          <h5> Earns 5-10 golds </h5>
+          <form action="/make" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+            <input type="hidden" name="location" value="cave"/>
+            <input class='submit' type="Submit" value="Find Gold!"/>
+          </form>
+        </div>
+
+        <div id="housebox" class="tbox">
+          <h4> House </h4>
+          <h5> Earns 2-5 golds </h5>
+          <form action="/make" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+            <input type="hidden" name="location" value="house"/>
+            <input class='submit' type="Submit" value="Find Gold!"/>
+          </form>
+        </div>
+
+        <div id="casinobox" class="tbox">
+          <h4> Casino </h4>
+          <h5> Earns/takes 0-50 golds </h5>
+          <form action="/make" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+            <input type="hidden" name="location" value="casino"/>
+            <input class='submit' type="Submit" value="Find Gold!"/>
+          </form>
+        </div>
+
+<a href="/reset" method="post"> Reset </a>
+
+        <div>
+          <textarea id='scroll' cols='150' rows='50'>
+          <%= session[:log].each {|x| puts x} %>
+         </textarea>
+        </div>
