@@ -18,7 +18,24 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
-    puts @user.first_name
     render 'show'
+  end
+  def edit
+    @user = User.find(params[:id])
+    render 'edit'
+  end
+  def update
+    puts "Inside update method"
+    @user = User.update(params[:id], :first_name => params[:first_name], :last_name => params[:last_name], :email_address => params[:email], :password => params[:password])
+    @errors = @user.errors.messages
+    if @errors.length > 0
+      render 'users/params[:id]/edit'
+    else
+      redirect_to '/users'
+    end
+  end
+  def destroy
+    @user = User.find(params[:id]).destroy
+    render 'index'
   end
 end
