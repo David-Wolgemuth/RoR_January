@@ -10,8 +10,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    category = Category.find(products_params[:category])
-    @product =  Product.create( name: params[:name], description: params[:description], pricing: params[:price])
+    category = Category.find(params[:category])
+    @product =  Product.create( name: params[:name], description: params[:description], pricing: params[:price],:category => category)
     @errors = @product.errors.messages
     if @errors.length > 0
       render '/product/new'
