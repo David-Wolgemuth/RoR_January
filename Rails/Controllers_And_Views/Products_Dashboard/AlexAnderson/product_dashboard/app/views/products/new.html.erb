@@ -7,6 +7,12 @@
 
 <form class="" action="/products/create" method="post">
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  Category:
+  <select name="category">
+    <% @categories.each do |category| %>
+    <option value="<%=category.id%>"><%=category.name%></option>
+    <% end %>
+  </select> <br>
   Name <br>
   <input type="text" name="name" required="true"> <br>
   Description <br>
