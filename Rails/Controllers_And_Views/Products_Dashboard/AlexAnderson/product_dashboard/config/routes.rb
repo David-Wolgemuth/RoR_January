@@ -7,11 +7,11 @@ Rails.application.routes.draw do
 
   get 'products/edit'
 
-  get 'products/create'
+  post 'products/create'
 
-  get 'products/update'
+  patch 'products/update'
 
-  get 'products/destroy'
+  delete 'products/destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
