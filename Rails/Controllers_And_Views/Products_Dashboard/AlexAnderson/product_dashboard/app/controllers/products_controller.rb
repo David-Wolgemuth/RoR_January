@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    render 'show'
   end
 
   def new
@@ -12,6 +14,8 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
+    render 'edit'
   end
 
   def create
@@ -25,6 +29,13 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @product = Product.update(params[:id], :name => params[:name], :description => params[:description], :pricing => params[:price])
+    @errors = @product.errors.messages
+    if @errors.length > 0
+      render 'products/params[:id]/edit'
+    else
+      redirect_to '/products'
+    end
   end
 
   def destroy

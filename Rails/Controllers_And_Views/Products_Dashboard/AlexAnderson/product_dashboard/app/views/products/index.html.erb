@@ -13,8 +13,8 @@
   <tr>
     <td><%=product.name%></td> <td><%= product.description%></td><td>$<%= product.pricing%></td>
     <td>
-        <a href="/users/<%=product.id%>">Show</a> |
-        <a href="/users/<%=product.id%>/edit">Edit</a> |
+        <a href="/products/<%=product.id%>">Show</a> |
+        <a href="/products/<%=product.id%>/edit">Edit</a> |
         <%= link_to 'Destroy',"/products/#{product.id}", :method => :delete %>
     </td>
   </tr>
