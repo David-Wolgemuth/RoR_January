@@ -1,0 +1,11 @@
+First: <%=@product.name%><br>
+Description: <%=@product.description%><br>
+Price: <%=@product.pricing%><br>
+Category: <%=@product.category.name%><br>
+<a href="/products/<%=@product.id%>/edit">Edit</a> | <a href="/products">Back</a>
+
+Comment:
+<form action="/addcomment" method="post">
+  <textarea name="comment" rows="8" cols="80"></textarea>
+  <input type="submit" value="Submit">
+</form>
