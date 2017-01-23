@@ -1,0 +1,10 @@
+<h1>Users login</h1>
+
+<form action="/login_user" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="text" name="email" >
+  <input type="text" name="password">
+  <input type="submit" name="" value="Login">
+
+</form>
+<a href="/register">New User?</a>

@@ -1,0 +1,104 @@
+== README
+
+rspec
+=====
+require 'rails_helper'
+describe Mathdojo do
+
+ it "adds" do
+  expect(Mathdojo.new.add(3,8).result).to eq(11)
+ end
+ it "adds arrays" do
+  expect(Mathdojo.new.add([1,3,5,9]).result).to eq(18)
+ end
+
+ it "subtracts" do
+  expect(Mathdojo.new.subtract(3,4).result).to eq(-1)
+ end
+ it "subtracts arrays" do
+  expect(Mathdojo.new.subtract([2,5]).result).to eq(-3)
+ end
+
+ it "magics" do
+  expect(Mathdojo.new.magic(3,[4,5]).result).to eq(27)
+ end
+
+ it "multiplys" do
+  expect(Mathdojo.new.multiply(3,4).result).to eq(12)
+ end
+ it "multiplys arrays" do
+  expect(Mathdojo.new.multiply([2,5]).result).to eq(10)
+ end
+
+ it "divides" do
+  expect(Mathdojo.new.divide(8,4).result).to eq(2)
+ end
+ it "divides arrays" do
+  expect(Mathdojo.new.divide([20,5]).result).to eq(4)
+ end
+
+ it "resets" do
+   expect(Mathdojo.new.reset(1,2,3).result).to eq(1)
+ end
+
+end
+
+
+rb
+=====
+class Mathdojo
+ attr_accessor :result
+ def initialize
+  @result = 0
+ end
+
+ def add *numbers
+   if numbers.kind_of?(Array)
+     @result += numbers.flatten.inject(:+)
+   else
+     @result += numbers
+   end
+  return self
+ end
+
+ def subtract *numbers
+   if numbers.kind_of?(Array)
+     @result += numbers.flatten.inject(:-)
+   else
+     @result -= numbers
+   end
+  return self
+ end
+
+ def multiply *numbers
+   if numbers.kind_of?(Array)
+     @result += numbers.flatten.inject(:*)
+   else
+     @result *= numbers
+   end
+  return self
+ end
+
+ def magic (num, array)
+    @result += num * array.flatten.inject(:+)
+    return self
+ end
+
+ def divide *numbers
+   if numbers.kind_of?(Array)
+     @result += numbers.flatten.inject(:/)
+   else
+     @result /= numbers
+   end
+  return self
+ end
+
+ def reset *args
+   @result = 1
+   return self
+ end
+
+end
+
+mike = Mathdojo.new
+puts mike.add(5).subtract(3,5).reset.add(3).result

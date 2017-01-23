@@ -1,0 +1,16 @@
+<h1>Hello, <%= @name %></h1>
+<% @items.each do |item| %>
+    <form class="" action="/update" method="put">
+        <input type="checkbox" name="" value=""
+        <% if item.checked %>
+            checked="checked"
+        <% end %>
+        >
+        <%= item.content %>
+    </form> <br>
+<% end %>
+<form class="" action="/create_item" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="text" name="content" placeholder="New Item" value="">
+    <input type="submit" name="itemBtn" value="Add">
+</form>

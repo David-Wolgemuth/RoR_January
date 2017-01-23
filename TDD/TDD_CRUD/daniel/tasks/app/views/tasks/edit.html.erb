@@ -1,0 +1,10 @@
+<h1>Edit</h1>
+
+<%= render 'form' %>
+
+<ul>
+    <li id='task_<%=@the_task.id %>'>
+      <%= @the_task.task %> |
+      <%= link_to 'Edit', edit_task_path(@the_task.id) %>
+    </li>
+</ul>
