@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20170123172003) do
 
   create_table "tasks", force: :cascade do |t|
     t.string   "item"
+    t.boolean  "checked"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
