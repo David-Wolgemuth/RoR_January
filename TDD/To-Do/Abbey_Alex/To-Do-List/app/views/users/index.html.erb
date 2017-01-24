@@ -1,7 +1,8 @@
 <h1>Welcome to Your To-Do List App!</h1>
 <form action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="text" name='user[email]' placeholder='email'>
-  <input type="text" name='user[password]' placeholder='password'>
+  <input type="text" name='email' placeholder='email'>
+  <input type="text" name='password' placeholder='password'>
   <input type="submit" value="Log In">
 </form>
+<h3>New User? Head <a href="/users/new">here.</a></h3>
