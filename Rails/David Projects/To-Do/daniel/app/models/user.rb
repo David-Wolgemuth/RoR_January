@@ -1,12 +1,16 @@
 class User < ActiveRecord::Base
-  EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
-  has_many :owners
-  has_many :messages
-  has_many :posts
-  has_many :blogs, through: :owners
 
-  validates :email_address, format: { with: EMAIL_REGEX }
-  validates :last_name, presence: true
-  validates :email_address, presence: true
-  validates :first_name, presence: true
+  has_secure_password
+
+  email_regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
+  
+  validates :name, :presence => true
+
+  validates :email, :presence => true, :format => { :with => email_regex }, :uniqueness => { :case_sensitive => false }
+
+  validates :password, :presence => true
+  
+  has_many :tasks
+  
+
 end

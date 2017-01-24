@@ -1,28 +1,11 @@
-== README
+Accessing a Rails Server running on VBox guest.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Go to VirtualBox... Settings -> Network -> Port Fowarding
+Enter 3000 for Host Port
+Enter 3000 for Guest Port
+Go to your VirtualBox guest machine.
+In the terminal run ifconfig, to check the eth0 IP (10.0.2.15)
+When you run the rails server, in the VirtualBox guest machine, use the following command:
+$ rails server -b 10.0.2.15
+You want to bind to that address.
+On your Host System, go to the browser and visit http://127.0.0.1:3000
